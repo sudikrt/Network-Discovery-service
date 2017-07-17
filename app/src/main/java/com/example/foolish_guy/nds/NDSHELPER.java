@@ -1,7 +1,6 @@
 package com.example.foolish_guy.nds;
 
 import android.content.Context;
-import android.net.NetworkInfo;
 import android.net.nsd.NsdManager;
 import android.net.nsd.NsdServiceInfo;
 import android.util.Log;
@@ -125,7 +124,7 @@ public class NDSHELPER {
 
     public void stopDiscovery() {
         try {
-            if (isAlreadyDiscovered) {
+            if (isAlreadyDiscovered || isDiscovering) {
                 nsdManager.stopServiceDiscovery(discoveryListener);
             }
         } catch (Exception e) {
